@@ -1,26 +1,28 @@
 //
-//  ViewController.m
+//  TestViewController.m
 //  JingYiYuan
 //
 //  Created by VINCENT on 2017/9/6.
 //  Copyright © 2017年 北京京壹元资讯信息服务有限公司. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TestViewController.h"
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface TestViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 /** table*/
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
 
-@implementation ViewController
+@implementation TestViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.tableView];
 }
+
+
 
 #pragma -- mark TableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -30,7 +32,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    TestViewController *test = [[TestViewController alloc] init];
+    ViewController *test = [[ViewController alloc] init];
     [self.navigationController pushViewController:test animated:YES];
 }
 
@@ -49,18 +51,11 @@
 - (UITableView *)tableView{
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    
+        
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }
     return _tableView;
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end
